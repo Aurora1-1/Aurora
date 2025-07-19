@@ -7,18 +7,24 @@
         body {
             margin: 0;
             font-family: Arial, sans-serif;
-            background: linear-gradient(135deg, #4B0082, #8A2BE2);
+            background: linear-gradient(135deg, #6a0dad, #b19cd9);
             color: white;
             text-align: center;
             position: relative;
-            transition: background 0.5s, color 0.5s;
         }
         .header {
             padding: 20px;
-            background-color: rgba(0,0,0,0.5);
-            font-family: 'Brush Script MT', cursive;
+            background-color: rgba(0,0,0,0.6);
         }
-        .basic-tools {
+        .announcement {
+            background-color: #ff9800;
+            color: black;
+            padding: 10px;
+            margin: 10px 0;
+            border-radius: 5px;
+            font-weight: bold;
+        }
+        .tools {
             display: flex;
             flex-wrap: wrap;
             justify-content: center;
@@ -36,11 +42,8 @@
             position: fixed;
             bottom: 10px;
             left: 10px;
-            background-color: rgba(0,0,0,0.5);
-            padding: 5px 10px;
-            border-radius: 5px;
             font-weight: bold;
-            font-size: 1.5rem;
+            font-size: 1.2rem;
             font-family: 'Brush Script MT', cursive;
         }
         footer {
@@ -51,18 +54,20 @@
     </style>
 </head>
 <body><div class="header">
-    <h1>Welcome to Aurora</h1>
+    <h1 style="font-family: 'Brush Script MT', cursive; font-size: 3rem;">Welcome to Aurora</h1>
     <p>Where Creativity Meets Intelligence 🚀</p>
 </div>
 
+<div class="announcement">
+    🎉 Official Launch on <strong>1 February 2026</strong>! Stay tuned! 🎉
+</div>
+
 <h2>Basic Tools</h2>
-<div class="basic-tools">
-    <div class="tool-card"><h3>✂️ Trim</h3><p>Cut unwanted parts of your video easily.</p></div>
-    <div class="tool-card"><h3>🔀 Merge</h3><p>Combine multiple clips into one seamless video.</p></div>
-    <div class="tool-card"><h3>🎵 Add Music</h3><p>Insert background music to enhance mood.</p></div>
-    <div class="tool-card"><h3>🖼️ Filters</h3><p>Apply cool filters to your photos and videos.</p></div>
-    <div class="tool-card"><h3>🎤 Voiceover</h3><p>Add custom voiceovers to narrate your story.</p></div>
-    <div class="tool-card"><h3>💬 Captions</h3><p>Insert subtitles for better engagement.</p></div>
+<div class="tools">
+    <div class="tool-card"><h3>✂️ Trim</h3><p>Trim your videos easily.</p></div>
+    <div class="tool-card"><h3>➕ Merge</h3><p>Combine multiple clips into one.</p></div>
+    <div class="tool-card"><h3>🔊 Audio Adjust</h3><p>Control audio levels in your media.</p></div>
+    <div class="tool-card"><h3>🎵 Add Music</h3><p>Insert background music to your videos.</p></div>
 </div>
 
 <div class="logo">A</div>
