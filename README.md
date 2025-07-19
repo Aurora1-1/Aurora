@@ -1,80 +1,74 @@
+# Creating a zip file with the index.html content
+
+from zipfile import ZipFile
+import os
+
+# Create the index.html content
+index_html_content = """
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Aurora - AI Photo & Video Enhancer</title>
-    <style>
-        body {
-            margin: 0;
-            font-family: Arial, sans-serif;
-            background: linear-gradient(135deg, #6a0dad, #b19cd9);
-            color: white;
-            text-align: center;
-            position: relative;
-        }
-        .header {
-            padding: 20px;
-            background-color: rgba(0,0,0,0.6);
-        }
-        .announcement {
-            background-color: #ff9800;
-            color: black;
-            padding: 10px;
-            margin: 10px 0;
-            border-radius: 5px;
-            font-weight: bold;
-        }
-        .tools {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            gap: 20px;
-            margin-top: 30px;
-        }
-        .tool-card {
-            background: rgba(255,255,255,0.1);
-            border-radius: 10px;
-            padding: 20px;
-            width: 250px;
-            box-shadow: 0 0 10px rgba(0,0,0,0.5);
-        }
-        .logo {
-            position: fixed;
-            bottom: 10px;
-            left: 10px;
-            font-weight: bold;
-            font-size: 1.2rem;
-            font-family: 'Brush Script MT', cursive;
-        }
-        footer {
-            margin-top: 40px;
-            font-size: 0.8rem;
-            opacity: 0.6;
-        }
-    </style>
+    <title>Aurora - Ultimate Editing Studio</title>
+    <link rel="stylesheet" href="styles.css">
 </head>
-<body><div class="header">
-    <h1 style="font-family: 'Brush Script MT', cursive; font-size: 3rem;">Welcome to Aurora</h1>
-    <p>Where Creativity Meets Intelligence 🚀</p>
-</div>
+<body>
 
-<div class="announcement">
-    🎉 Official Launch on <strong>1 February 2026</strong>! Stay tuned! 🎉
-</div>
+    <header>
+        <h1>🌌 Aurora</h1>
+        <nav>
+            <a href="#">Home</a>
+            <a href="#">Features</a>
+            <a href="#">Editor</a>
+            <a href="#">Gallery</a>
+            <a href="#">Login</a>
+        </nav>
+    </header>
 
-<h2>Basic Tools</h2>
-<div class="tools">
-    <div class="tool-card"><h3>✂️ Trim</h3><p>Trim your videos easily.</p></div>
-    <div class="tool-card"><h3>➕ Merge</h3><p>Combine multiple clips into one.</p></div>
-    <div class="tool-card"><h3>🔊 Audio Adjust</h3><p>Control audio levels in your media.</p></div>
-    <div class="tool-card"><h3>🎵 Add Music</h3><p>Insert background music to your videos.</p></div>
-</div>
+    <section id="hero">
+        <h2>Welcome to Aurora</h2>
+        <p>Create stunning videos & photos effortlessly with AI-powered tools.</p>
+        <button>Start Editing Now</button>
+    </section>
 
-<div class="logo">A</div>
+    <section id="features">
+        <h2>Our Features</h2>
+        <ul>
+            <li>8K Ultra HD Export Quality</li>
+            <li>Multi-Layer Timeline Editing</li>
+            <li>AI Auto-Editing & Smart Tools</li>
+            <li>Auto Captions in Multiple Languages</li>
+            <li>Voice Command Editing</li>
+            <li>AI Mood Filters & Face Tracking</li>
+        </ul>
+    </section>
 
-<footer>
-    &copy; 2025 Aurora - All rights reserved.
-</footer>
+    <section id="cta">
+        <h2>Join the Aurora Revolution</h2>
+        <button>Get Started</button>
+    </section>
+
+    <footer>
+        <p>&copy; 2025 Aurora. All rights reserved.</p>
+    </footer>
 
 </body>
 </html>
+"""
+
+# Write the content to index.html
+with open("index.html", "w") as file:
+    file.write(index_html_content)
+
+# Create a zip file
+zip_filename = "aurora_website.zip"
+with ZipFile(zip_filename, 'w') as zipf:
+    zipf.write("index.html")
+
+# Clean up the index.html file after zipping
+os.remove("index.html")
+
+# Provide the download link
+zip_filename
+
