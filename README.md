@@ -1,4 +1,3 @@
-<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -77,7 +76,7 @@
     <div class="header">
         <h1 style="font-family: 'Brush Script MT', cursive; font-size: 3rem;">Aurora</h1>
         <p>AI-Powered Photo & Video Enhancer 🚀</p>
-        <h2>Welcome to Ravema</h2>
+        <h2>Welcome to Aurora</h2>
     </div>
 
     <div class="announcement">We are launching all features on <strong>20 November 2025</strong>! Stay tuned! 🎉</div>
