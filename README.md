@@ -2,7 +2,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Aurora - AI Photo & Video Enhancer</title>
+    <title>AI Photo & Video Enhancer</title>
     <style>
         body {
             margin: 0;
@@ -21,17 +21,41 @@
             --bg-color: #f8f9fa;
             --text-color: #212529;
         }
+        .astronaut-theme {
+            --bg-color: #0b3d91;
+            --text-color: #ffffff;
+            background-image: url('https://images.unsplash.com/photo-1446776811953-b23d57bd21aa');
+            background-size: cover;
+        }
         .header {
             padding: 20px;
             background-color: rgba(0,0,0,0.6);
         }
-        .theme-toggle {
+        .announcement {
+            background-color: #ff9800;
+            color: black;
+            padding: 10px;
+            margin: 10px 0;
+            border-radius: 5px;
+            font-weight: bold;
+        }
+        .theme-toggle, .astronaut-toggle {
             position: absolute;
             top: 20px;
             right: 20px;
             padding: 10px;
             cursor: pointer;
             background: #fff;
+            border: none;
+            border-radius: 5px;
+            font-weight: bold;
+            margin-left: 5px;
+        }
+        .language-select {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            padding: 10px;
             border: none;
             border-radius: 5px;
             font-weight: bold;
@@ -68,56 +92,72 @@
         }
     </style>
 </head>
-<body>
+<body><button class="theme-toggle" onclick="toggleTheme()">Toggle Light/Dark</button>
+<button class="astronaut-toggle" onclick="toggleAstronautTheme()">Astronaut Theme</button>
+<select class="language-select" onchange="changeLanguage(this.value)">
+    <option value="en">English</option>
+    <option value="ur">Urdu</option>
+    <option value="fr">French</option>
+    <option value="es">Spanish</option>
+    <option value="jp">Japanese</option>
+    <option value="kr">Korean</option>
+    <option value="hi">Hindi</option>
+    <option value="pt">Portuguese</option>
+    <option value="de">German</option>
+</select>
 
-    <button class="theme-toggle" onclick="toggleTheme()">Toggle Theme</button>
+<div class="header">
+    <h1 style="font-family: 'Brush Script MT', cursive; font-size: 3rem;">Welcome to Aurora</h1>
+    <p>Where Creativity Meets Intelligence. 🚀</p>
+</div>
 
-    <div class="header">
-        <h1 style="font-family: 'Brush Script MT', cursive; font-size: 3rem;">Aurora</h1>
-        <p>Where Creativity Meets Intelligence. 🚀</p>
-    </div>
+<div class="announcement">
+    🎉 Official Launch on <strong>1 February 2025</strong>! Stay tuned! 🎉
+</div>
 
-    <h2>Explore Our Extensive Features ✨</h2>
-    <div class="features">
-        <div class="feature-card"><h3>🎨 AI Style Transfer</h3><p>Turn photos into artworks like Van Gogh or Ghibli.</p></div>
-        <div class="feature-card"><h3>🌌 Ghibli Image Generator</h3><p>Create dreamy Ghibli-inspired images using AI.</p></div>
-        <div class="feature-card"><h3>📚 Scholarly Note Scanner</h3><p>Scan handwritten notes & convert them to digital text.</p></div>
-        <div class="feature-card"><h3>📊 AI Presentation Maker</h3><p>Create aesthetic slides & presentations instantly with AI.</p></div>
-        <div class="feature-card"><h3>🎭 AI Face Morphing</h3><p>Transform faces with AI morphing technology for fun & creativity.</p></div>
-        <div class="feature-card"><h3>🌟 AI Colorizer</h3><p>Colorize black and white photos automatically.</p></div>
-    </div>
+<h2>Explore Our Extensive Features ✨</h2>
+<div class="features" id="features"></div>
 
-    <h2>About Us</h2>
-    <div class="section">
-        <div class="section-card"><p>Aurora is built to redefine creativity with cutting-edge AI tools for enhancing photos and videos effortlessly.</p></div>
-    </div>
+<div class="logo">A</div>
 
-    <h2>Contact</h2>
-    <div class="section">
-        <div class="section-card"><p>Email us at: support@aurora.io</p></div>
-    </div>
+<footer>
+    &copy; 2025 Aurora - All rights reserved.
+</footer>
 
-    <h2>Team</h2>
-    <div class="section">
-        <div class="section-card"><p>Meet the passionate team of developers, designers, and AI experts behind Aurora.</p></div>
-    </div>
-
-    <h2>Blog / Updates</h2>
-    <div class="section">
-        <div class="section-card"><p>Stay tuned for exciting updates, tutorials, and tips on maximizing your creativity with Aurora!</p></div>
-    </div>
-
-    <div class="logo">Aurora</div>
-
-    <footer>
-        &copy; 2025 Aurora - All rights reserved.
-    </footer>
-
-    <script>
-        function toggleTheme() {
-            document.body.classList.toggle('light-theme');
+<script>
+    const content = {
+        en: {
+            features: [
+                "🎬 Basic Editing Tools - Trim, split, merge videos easily.",
+                "🎶 Music Library - Access a wide collection of free music & sound effects.",
+                "🎤 Voiceover Recording - Record your own voice within the app.",
+                "📜 Text & Titles - Add animated text with various fonts and styles.",
+                "🔄 Video Transitions - Smooth transitions between video clips.",
+                "💬 Auto Captions - Generate subtitles automatically from speech.",
+                "🎨 Stickers & Emojis - Add fun stickers, gifs, and emojis.",
+                "🗡️ Chroma Key (Green Screen) - Remove backgrounds using green screen tools.",
+                "🔍 3D Zoom Pro - Create cinematic 3D zoom effects effortlessly."
+            ]
         }
-    </script>
+    };
+
+    function toggleTheme() {
+        document.body.classList.toggle('light-theme');
+        document.body.classList.remove('astronaut-theme');
+    }
+
+    function toggleAstronautTheme() {
+        document.body.classList.toggle('astronaut-theme');
+        document.body.classList.remove('light-theme');
+    }
+
+    function changeLanguage(lang) {
+        const data = content[lang] || content['en'];
+        document.getElementById('features').innerHTML = data.features.map(f => `<div class='feature-card'>${f}</div>`).join('');
+    }
+
+    changeLanguage('en');
+</script>
 
 </body>
 </html>
