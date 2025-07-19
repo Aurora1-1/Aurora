@@ -3,31 +3,26 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Aurora - Advanced AI Photo & Video Enhancer</title>
+    <title>Aurora - AI Photo & Video Enhancer</title>
     <style>
         body {
             margin: 0;
             font-family: Arial, sans-serif;
-            background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
+            background: linear-gradient(135deg, #1d2b64, #f8cdda);
             color: white;
             text-align: center;
+            position: relative;
         }
-        .loader {
-            font-size: 5rem;
-            margin-top: 20%;
-            animation: pulse 1s infinite;
-        }
-        @keyframes pulse {
-            0% { transform: scale(1); opacity: 0.7; }
-            50% { transform: scale(1.2); opacity: 1; }
-            100% { transform: scale(1); opacity: 0.7; }
+        .header {
+            padding: 20px;
+            background-color: rgba(0,0,0,0.6);
         }
         .features {
             display: flex;
             flex-wrap: wrap;
             justify-content: center;
             gap: 20px;
-            margin-top: 40px;
+            margin-top: 30px;
         }
         .feature-card {
             background: rgba(255,255,255,0.1);
@@ -37,59 +32,71 @@
             box-shadow: 0 0 10px rgba(0,0,0,0.5);
         }
         footer {
-            margin-top: 50px;
+            margin-top: 40px;
             font-size: 0.8rem;
             opacity: 0.6;
+        }
+        .logo {
+            position: fixed;
+            bottom: 10px;
+            left: 10px;
+            background-color: rgba(0,0,0,0.5);
+            padding: 5px 10px;
+            border-radius: 5px;
+            font-weight: bold;
+            font-size: 1.2rem;
+            font-family: 'Brush Script MT', cursive;
+        }
+        .login-button {
+            background-color: #fff;
+            color: #000;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-top: 20px;
+            font-weight: bold;
         }
     </style>
 </head>
 <body>
-    <div id="loader" class="loader">A</div>
 
-    <div id="content" style="display:none;">
-        <h1>Welcome to Aurora</h1>
-        <p>The Ultimate AI Tool for Photo & Video Editing</p>
-
-        <div class="features">
-            <div class="feature-card">
-                <h3>🎨 AI Artistic Filters</h3>
-                <p>Transform your photos into stunning artworks instantly.</p>
-            </div>
-            <div class="feature-card">
-                <h3>📹 8K Video Upscaler</h3>
-                <p>Enhance your videos to 8K resolution with clarity and depth.</p>
-            </div>
-            <div class="feature-card">
-                <h3>🎭 AI Avatars & Memes</h3>
-                <p>Create trending avatars and viral memes with one click.</p>
-            </div>
-            <div class="feature-card">
-                <h3>🎯 Object & Face Tracking</h3>
-                <p>Perfect motion tracking for professional editing.</p>
-            </div>
-            <div class="feature-card">
-                <h3>📝 Auto Subtitle Generator</h3>
-                <p>Generate accurate subtitles for your videos effortlessly.</p>
-            </div>
-            <div class="feature-card">
-                <h3>📸 Story & Reel Creator</h3>
-                <p>Craft captivating stories and reels in seconds for social media.</p>
-            </div>
-        </div>
-
-        <footer>
-            &copy; 2025 Aurora - All rights reserved.
-        </footer>
+    <div class="header">
+        <h1 style="font-family: 'Brush Script MT', cursive; font-size: 3rem;">Aurora</h1>
+        <p>AI-Powered Photo & Video Enhancer 🚀</p>
+        <button class="login-button" onclick="alert('Login feature coming soon!')">Login</button>
     </div>
 
-    <script>
-        // Simulate Loading then show content
-        window.onload = function() {
-            setTimeout(() => {
-                document.getElementById('loader').style.display = 'none';
-                document.getElementById('content').style.display = 'block';
-            }, 2000); // 2 seconds loader
-        };
-    </script>
+    <h2>Explore Our Extensive Features ✨</h2>
+
+    <div class="features">
+        <div class="feature-card"><h3>🎨 AI Style Transfer</h3><p>Turn photos into artworks like Van Gogh or Ghibli.</p></div>
+        <div class="feature-card"><h3>🌌 Ghibli Image Generator</h3><p>Create dreamy Ghibli-inspired images using AI.</p></div>
+        <div class="feature-card"><h3>📚 Scholarly Note Scanner</h3><p>Scan handwritten notes & convert them to digital text.</p></div>
+        <div class="feature-card"><h3>📊 AI Presentation Maker</h3><p>Create aesthetic slides & presentations instantly with AI.</p></div>
+        <div class="feature-card"><h3>🎭 AI Face Morphing</h3><p>Transform faces with AI morphing technology for fun & creativity.</p></div>
+        <div class="feature-card"><h3>🌟 AI Colorizer</h3><p>Colorize black and white photos automatically.</p></div>
+        <div class="feature-card"><h3>📽️ Motion Tracking Effects</h3><p>Apply visual effects that follow objects in videos.</p></div>
+        <div class="feature-card"><h3>🔊 AI Noise Cancellation</h3><p>Remove background noise from your audio clips seamlessly.</p></div>
+        <div class="feature-card"><h3>🌈 AI Photo Restoration</h3><p>Restore old or damaged photos with AI.</p></div>
+        <div class="feature-card"><h3>✂️ Basic Editing Tools</h3><p>Trim, split, merge videos easily.</p></div>
+        <div class="feature-card"><h3>🖼️ Filters & Effects</h3><p>Apply tons of filters, glitch effects, and cinematic looks.</p></div>
+        <div class="feature-card"><h3>🎶 Music Library</h3><p>Access a wide collection of free music & sound effects.</p></div>
+        <div class="feature-card"><h3>🎤 Voiceover Recording</h3><p>Record your own voice within the app.</p></div>
+        <div class="feature-card"><h3>📜 Text & Titles</h3><p>Add animated text with various fonts and styles.</p></div>
+        <div class="feature-card"><h3>🔄 Video Transitions</h3><p>Smooth transitions between video clips.</p></div>
+        <div class="feature-card"><h3>💬 Auto Captions</h3><p>Generate subtitles automatically from speech.</p></div>
+        <div class="feature-card"><h3>🎨 Stickers & Emojis</h3><p>Add fun stickers, gifs, and emojis.</p></div>
+        <div class="feature-card"><h3>🗡️ Chroma Key (Green Screen)</h3><p>Remove backgrounds using green screen tools.</p></div>
+        <div class="feature-card"><h3>🔍 3D Zoom Pro</h3><p>Create cinematic 3D zoom effects effortlessly.</p></div>
+    </div>
+
+    <div class="logo">Aurora</div>
+
+    <footer>
+        &copy; 2025 Aurora - All rights reserved.
+    </footer>
+
 </body>
 </html>
+
