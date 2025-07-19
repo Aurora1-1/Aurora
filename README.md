@@ -16,6 +16,25 @@
         .header {
             padding: 20px;
             background-color: rgba(0,0,0,0.6);
+            animation: fadeIn 2s;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        .announcement {
+            background-color: #ffcc00;
+            color: black;
+            padding: 10px;
+            font-weight: bold;
+            margin: 10px auto;
+            width: 80%;
+            border-radius: 5px;
+            animation: bounce 1s infinite alternate;
+        }
+        @keyframes bounce {
+            from { transform: translateY(0); }
+            to { transform: translateY(-10px); }
         }
         .features {
             display: flex;
@@ -30,6 +49,19 @@
             padding: 20px;
             width: 250px;
             box-shadow: 0 0 10px rgba(0,0,0,0.5);
+            transition: transform 0.3s;
+        }
+        .feature-card:hover {
+            transform: scale(1.05);
+        }
+        .feature-card button {
+            margin-top: 10px;
+            padding: 5px 10px;
+            border: none;
+            background: #fff;
+            color: #000;
+            border-radius: 5px;
+            cursor: pointer;
         }
         footer {
             margin-top: 40px;
@@ -58,6 +90,13 @@
             font-weight: bold;
         }
     </style>
+    <script>
+        window.onload = function() {
+            alert("Welcome to Aurora");
+            let audio = new Audio('https://www.soundjay.com/button/beep-07.wav');
+            audio.play();
+        }
+    </script>
 </head>
 <body>
 
@@ -66,6 +105,8 @@
         <p>AI-Powered Photo & Video Enhancer 🚀</p>
         <button class="login-button" onclick="alert('Login feature coming soon!')">Login</button>
     </div>
+
+    <div class="announcement">We are launching all features on <strong>20 November 2025</strong>! Stay tuned! 🎉</div>
 
     <h2>Explore Our Extensive Features ✨</h2>
 
@@ -99,4 +140,5 @@
 
 </body>
 </html>
+
 
