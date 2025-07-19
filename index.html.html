@@ -306,5 +306,29 @@
 
 </body>
 </html>
+<!-- Add this in your HTML body where you want the form -->
+<section id="login">
+  <h2>🔐 Login</h2>
+  <form onsubmit="return fakeLogin(event)">
+    <input type="text" id="username" placeholder="Username" required /><br><br>
+    <input type="password" id="password" placeholder="Password" required /><br><br>
+    <button type="submit">Login</button>
+  </form>
+  <p id="loginStatus"></p>
+</section>
+
+<script>
+  function fakeLogin(event) {
+    event.preventDefault();
+    const user = document.getElementById("username").value;
+    const pass = document.getElementById("password").value;
+    if (user === "admin" && pass === "1234") {
+      document.getElementById("loginStatus").innerText = "✅ Login successful!";
+    } else {
+      document.getElementById("loginStatus").innerText = "❌ Invalid credentials";
+    }
+  }
+</script>
+
 
 
