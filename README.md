@@ -2,108 +2,74 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AI Photo & Video Enhancer</title>
+    <title>Aurora - Home</title>
     <style>
         body {
             margin: 0;
-            font-family: Arial, sans-serif;
-            background: var(--bg-color);
-            color: var(--text-color);
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
+            color: white;
             text-align: center;
+        }
+        header {
+            background: rgba(255, 255, 255, 0.05);
+            padding: 20px;
+            font-size: 2rem;
+            letter-spacing: 1px;
             position: relative;
-            transition: background 0.5s, color 0.5s;
-        }
-        :root {
-            --bg-color: #1d2b64;
-            --text-color: white;
-        }
-        .light-theme {
-            --bg-color: #f8f9fa;
-            --text-color: #212529;
-        }
-        .header {
-            padding: 20px;
-            background-color: rgba(0,0,0,0.6);
-        }
-        .announcement {
-            background-color: #ff9800;
-            color: black;
-            padding: 10px;
-            margin: 10px 0;
-            border-radius: 5px;
-            font-weight: bold;
-        }
-        .theme-toggle {
-            position: absolute;
-            top: 20px;
-            right: 20px;
-            padding: 10px;
-            cursor: pointer;
-            background: #fff;
-            border: none;
-            border-radius: 5px;
-            font-weight: bold;
-        }
-        .features, .section {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            gap: 20px;
-            margin-top: 30px;
-        }
-        .feature-card, .section-card {
-            background: rgba(255,255,255,0.1);
-            border-radius: 10px;
-            padding: 20px;
-            width: 250px;
-            box-shadow: 0 0 10px rgba(0,0,0,0.5);
         }
         .logo {
-            position: fixed;
-            bottom: 10px;
-            left: 10px;
-            background-color: rgba(0,0,0,0.5);
-            padding: 5px 10px;
-            border-radius: 5px;
+            position: absolute;
+            left: 20px;
+            top: 20px;
+            font-size: 2rem;
             font-weight: bold;
-            font-size: 1.2rem;
             font-family: 'Brush Script MT', cursive;
         }
-        footer {
+        nav {
+            margin: 20px 0;
+        }
+        nav a {
+            color: white;
+            margin: 0 15px;
+            text-decoration: none;
+            font-weight: bold;
+        }
+        nav a:hover {
+            text-decoration: underline;
+        }
+        .content {
+            max-width: 800px;
+            margin: 40px auto;
+            background: rgba(255,255,255,0.05);
+            padding: 20px;
+            border-radius: 10px;
+        }
+        .footer {
             margin-top: 40px;
+            padding: 10px;
             font-size: 0.8rem;
-            opacity: 0.6;
+            opacity: 0.7;
         }
     </style>
 </head>
-<body><button class="theme-toggle" onclick="toggleTheme()">Toggle Theme</button>
+<body><header>
+    <div class="logo">A</div>
+    Welcome to Aurora
+    <nav>
+        <a href="#features">Features</a>
+        <a href="#themes">Themes</a>
+        <a href="#contact">Contact</a>
+    </nav>
+</header><section class="content">
+    <h2 id="features">Our Features</h2>
+    <p>Experience top-notch editing, smart AI enhancements, and seamless user experience like never before.</p><h2 id="themes">Themes</h2>
+<p>Switch between Light Mode, Dark Mode, and the Astronaut Theme to customize your experience.</p>
 
-<div class="header">
-    <h1 style="font-family: 'Brush Script MT', cursive; font-size: 3rem;">Welcome to Aurora</h1>
-    <p>Where Creativity Meets Intelligence. 🚀</p>
-</div>
+<h2 id="contact">Contact</h2>
+<p>For inquiries, email us at: support@aurora.io</p>
 
-<div class="announcement">
-    🎉 Official Launch on <strong>1 February 2026</strong>! Stay tuned! 🎉
-</div>
-
-<h2>Explore Our Features ✨</h2>
-<div class="features">
-    <div class="feature-card">🎬 Basic Editing Tools - Trim, split, merge videos easily.</div>
-    <div class="feature-card">🎶 Music Library - Access a wide collection of free music & sound effects.</div>
-</div>
-
-<div class="logo">A</div>
-
-<footer>
-    &copy; 2026 Aurora - All rights reserved.
-</footer>
-
-<script>
-    function toggleTheme() {
-        document.body.classList.toggle('light-theme');
-    }
-</script>
-
-</body>
+</section><div class="footer">
+    &copy; 2026 Aurora - All Rights Reserved.
+</div></body>
 </html>
