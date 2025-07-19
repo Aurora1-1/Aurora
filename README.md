@@ -54,15 +54,6 @@
         .feature-card:hover {
             transform: scale(1.05);
         }
-        .feature-card button {
-            margin-top: 10px;
-            padding: 5px 10px;
-            border: none;
-            background: #fff;
-            color: #000;
-            border-radius: 5px;
-            cursor: pointer;
-        }
         footer {
             margin-top: 40px;
             font-size: 0.8rem;
@@ -79,31 +70,14 @@
             font-size: 1.2rem;
             font-family: 'Brush Script MT', cursive;
         }
-        .login-button {
-            background-color: #fff;
-            color: #000;
-            padding: 10px 20px;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-            margin-top: 20px;
-            font-weight: bold;
-        }
     </style>
-    <script>
-        window.onload = function() {
-            alert("Welcome to Aurora");
-            let audio = new Audio('https://www.soundjay.com/button/beep-07.wav');
-            audio.play();
-        }
-    </script>
 </head>
 <body>
 
     <div class="header">
         <h1 style="font-family: 'Brush Script MT', cursive; font-size: 3rem;">Aurora</h1>
         <p>AI-Powered Photo & Video Enhancer 🚀</p>
-        <button class="login-button" onclick="alert('Login feature coming soon!')">Login</button>
+        <h2>Welcome to Ravema</h2>
     </div>
 
     <div class="announcement">We are launching all features on <strong>20 November 2025</strong>! Stay tuned! 🎉</div>
@@ -140,5 +114,3 @@
 
 </body>
 </html>
-
-
