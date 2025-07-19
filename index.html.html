@@ -117,35 +117,41 @@
       transform: scale(1.03);
     }
 
+    .auth-buttons, .settings, .notifications, .search-bar, .profile-controls {
+      text-align: center;
+      padding: 20px;
+      margin: 20px auto;
+      background-color: #1f1f1f;
+      max-width: 600px;
+      border-radius: 10px;
+    }
+
+    input, button {
+      padding: 10px;
+      margin: 5px;
+      border: none;
+      border-radius: 5px;
+    }
+
+    button {
+      background: #8A2BE2;
+      color: white;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background: #FF1493;
+    }
+
     footer {
       text-align: center;
       padding: 20px;
       background-color: #111111;
       border-top: 1px solid #8A2BE2;
     }
-
-    #backToTop {
-      position: fixed;
-      bottom: 30px;
-      right: 30px;
-      background: #8A2BE2;
-      color: white;
-      border: none;
-      padding: 12px 16px;
-      border-radius: 50%;
-      font-size: 20px;
-      cursor: pointer;
-      display: none;
-      box-shadow: 0 0 10px #8A2BE2;
-    }
-
-    #backToTop:hover {
-      background: #FF1493;
-    }
   </style>
 </head>
 <body>
-
   <header>
     <div class="logo">🚀 Aurora</div>
     <nav>
@@ -165,6 +171,16 @@
     <p class="release-date">🚀 Official Release Date: 1 Feb 2026 🚀</p>
   </section>
 
+  <section class="auth-buttons">
+    <h2>🔐 Login / Signup</h2>
+    <input type="email" placeholder="Email" />
+    <input type="password" placeholder="Password" />
+    <br>
+    <button>Login</button>
+    <button>Signup</button>
+    <p><a href="#" style="color:#00FFFF;">Forgot Password?</a></p>
+  </section>
+
   <section id="features">
     <h2>✨ Features</h2>
     <ul>
@@ -180,6 +196,31 @@
   <section id="editor">
     <h2>🧠 Editor Tools</h2>
     <p style="text-align:center;">AI-enhanced creative tools with stunning UI.</p>
+  </section>
+
+  <section class="search-bar">
+    <h2>🔍 Search</h2>
+    <input type="text" placeholder="Search projects, clips...">
+    <button>Search</button>
+  </section>
+
+  <section class="notifications">
+    <h2>🔔 Notifications</h2>
+    <p>No new notifications. You're all caught up!</p>
+  </section>
+
+  <section class="profile-controls">
+    <h2>👤 Your Profile</h2>
+    <button>Edit Profile</button>
+    <button>View Stats</button>
+    <button>Logout</button>
+  </section>
+
+  <section class="settings">
+    <h2>⚙️ Settings</h2>
+    <button>Toggle Dark Mode</button>
+    <button>Language</button>
+    <button>Privacy</button>
   </section>
 
   <section id="gallery">
@@ -202,133 +243,5 @@
   <footer>
     <p>&copy; 2025 Aurora. All rights reserved.</p>
   </footer>
-
-  <button id="backToTop" title="Back to top">↑</button>
-
-  <script>
-    // Scroll reveal animation
-    const sections = document.querySelectorAll("section");
-    const options = {
-      threshold: 0.1
-    };
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add("visible");
-        }
-      });
-    }, options);
-    sections.forEach(section => {
-      observer.observe(section);
-    });
-
-    // Back to Top button
-    const backToTop = document.getElementById("backToTop");
-    window.addEventListener("scroll", () => {
-      if (window.scrollY > 300) {
-        backToTop.style.display = "block";
-      } else {
-        backToTop.style.display = "none";
-      }
-    });
-    backToTop.addEventListener("click", () => {
-      window.scrollTo({ top: 0, behavior: 'smooth' });
-    });
-  </script>
-
 </body>
 </html>
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Aurora Editor - Upload Video</title>
-  <style>
-    body {
-      background-color: #121212;
-      color: white;
-      font-family: Arial, sans-serif;
-      text-align: center;
-      padding: 40px;
-    }
-
-    .upload-box {
-      margin: 20px auto;
-      background: #1f1f1f;
-      padding: 30px;
-      border-radius: 15px;
-      max-width: 600px;
-      box-shadow: 0 0 10px #8A2BE2;
-    }
-
-    input[type="file"] {
-      margin-top: 10px;
-      padding: 10px;
-      background: #8A2BE2;
-      border: none;
-      border-radius: 8px;
-      color: white;
-      cursor: pointer;
-    }
-
-    video {
-      margin-top: 30px;
-      max-width: 100%;
-      border: 3px solid #8A2BE2;
-      border-radius: 10px;
-    }
-  </style>
-</head>
-<body>
-
-  <h1>🎥 Aurora Editor</h1>
-  <p>Upload your video to get started!</p>
-
-  <div class="upload-box">
-    <input type="file" accept="video/*" id="videoUpload" />
-    <video id="videoPreview" controls style="display: none;"></video>
-  </div>
-
-  <script>
-    const uploadInput = document.getElementById('videoUpload');
-    const videoPlayer = document.getElementById('videoPreview');
-
-    uploadInput.addEventListener('change', function () {
-      const file = uploadInput.files[0];
-      if (file) {
-        const videoURL = URL.createObjectURL(file);
-        videoPlayer.src = videoURL;
-        videoPlayer.style.display = 'block';
-      }
-    });
-  </script>
-
-</body>
-</html>
-<!-- Add this in your HTML body where you want the form -->
-<section id="login">
-  <h2>🔐 Login</h2>
-  <form onsubmit="return fakeLogin(event)">
-    <input type="text" id="username" placeholder="Username" required /><br><br>
-    <input type="password" id="password" placeholder="Password" required /><br><br>
-    <button type="submit">Login</button>
-  </form>
-  <p id="loginStatus"></p>
-</section>
-
-<script>
-  function fakeLogin(event) {
-    event.preventDefault();
-    const user = document.getElementById("username").value;
-    const pass = document.getElementById("password").value;
-    if (user === "admin" && pass === "1234") {
-      document.getElementById("loginStatus").innerText = "✅ Login successful!";
-    } else {
-      document.getElementById("loginStatus").innerText = "❌ Invalid credentials";
-    }
-  }
-</script>
-
-
-
