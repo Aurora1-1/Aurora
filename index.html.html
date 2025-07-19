@@ -148,4 +148,105 @@
     </footer>
 </body>
 </html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aurora - Ultimate Editing Studio</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: 'Orbitron', sans-serif;
+            background: #1c1c1c;
+            color: #fff;
+            text-align: center;
+        }
+        header {
+            background: #111;
+            padding: 20px;
+            border-bottom: 1px solid #333;
+        }
+        header h1 {
+            font-size: 2rem;
+            color: #00FFFF;
+        }
+        canvas {
+            border: 1px solid #fff;
+            background: #333;
+            display: block;
+            margin: 20px auto;
+        }
+        button {
+            background: #333;
+            color: #fff;
+            border: none;
+            padding: 12px 20px;
+            margin: 10px;
+            border-radius: 6px;
+            cursor: pointer;
+            transition: background 0.3s, transform 0.2s;
+        }
+        button:hover {
+            background: #00FFFF;
+            transform: scale(1.05);
+        }
+        footer {
+            margin-top: 30px;
+            padding: 20px;
+            background: #111;
+            border-top: 1px solid #333;
+        }
+        footer p {
+            margin: 0;
+            color: #ccc;
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <h1>Aurora - Ultimate Editing Studio</h1>
+</header>
+
+<canvas id="editor-canvas" width="500" height="350"></canvas>
+<button id="addTextBtn">Add Text</button>
+
+<script>
+const canvas = document.getElementById('editor-canvas');
+const ctx = canvas.getContext('2d');
+let drawing = false;
+
+canvas.addEventListener('mousedown', () => drawing = true);
+canvas.addEventListener('mouseup', () => {
+    drawing = false;
+    ctx.beginPath();
+});
+canvas.addEventListener('mousemove', e => {
+    if (!drawing) return;
+    const rect = canvas.getBoundingClientRect();
+    ctx.lineWidth = 2;
+    ctx.lineCap = 'round';
+    ctx.strokeStyle = '#ff1493';
+    ctx.lineTo(e.clientX - rect.left, e.clientY - rect.top);
+    ctx.stroke();
+    ctx.beginPath();
+    ctx.moveTo(e.clientX - rect.left, e.clientY - rect.top);
+});
+
+document.getElementById('addTextBtn').onclick = () => {
+    const text = prompt('Enter your text:');
+    if (!text) return;
+    ctx.font = '30px Arial';
+    ctx.fillStyle = '#00FFFF';
+    ctx.fillText(text, 50, 50);
+};
+</script>
+
+<footer>
+    <p>© 2025 Aurora. All rights reserved.</p>
+</footer>
+
+</body>
+</html>
 
