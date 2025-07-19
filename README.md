@@ -2,74 +2,74 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Aurora - Home</title>
+    <title>Aurora - AI Photo & Video Enhancer</title>
     <style>
         body {
             margin: 0;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
+            font-family: Arial, sans-serif;
+            background: linear-gradient(135deg, #4B0082, #8A2BE2);
             color: white;
             text-align: center;
-        }
-        header {
-            background: rgba(255, 255, 255, 0.05);
-            padding: 20px;
-            font-size: 2rem;
-            letter-spacing: 1px;
             position: relative;
+            transition: background 0.5s, color 0.5s;
         }
-        .logo {
-            position: absolute;
-            left: 20px;
-            top: 20px;
-            font-size: 2rem;
-            font-weight: bold;
+        .header {
+            padding: 20px;
+            background-color: rgba(0,0,0,0.5);
             font-family: 'Brush Script MT', cursive;
         }
-        nav {
-            margin: 20px 0;
+        .basic-tools {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px;
+            margin-top: 30px;
         }
-        nav a {
-            color: white;
-            margin: 0 15px;
-            text-decoration: none;
-            font-weight: bold;
-        }
-        nav a:hover {
-            text-decoration: underline;
-        }
-        .content {
-            max-width: 800px;
-            margin: 40px auto;
-            background: rgba(255,255,255,0.05);
-            padding: 20px;
+        .tool-card {
+            background: rgba(255,255,255,0.1);
             border-radius: 10px;
+            padding: 20px;
+            width: 250px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.5);
         }
-        .footer {
+        .logo {
+            position: fixed;
+            bottom: 10px;
+            left: 10px;
+            background-color: rgba(0,0,0,0.5);
+            padding: 5px 10px;
+            border-radius: 5px;
+            font-weight: bold;
+            font-size: 1.5rem;
+            font-family: 'Brush Script MT', cursive;
+        }
+        footer {
             margin-top: 40px;
-            padding: 10px;
             font-size: 0.8rem;
-            opacity: 0.7;
+            opacity: 0.6;
         }
     </style>
 </head>
-<body><header>
-    <div class="logo">A</div>
-    Welcome to Aurora
-    <nav>
-        <a href="#features">Features</a>
-        <a href="#themes">Themes</a>
-        <a href="#contact">Contact</a>
-    </nav>
-</header><section class="content">
-    <h2 id="features">Our Features</h2>
-    <p>Experience top-notch editing, smart AI enhancements, and seamless user experience like never before.</p><h2 id="themes">Themes</h2>
-<p>Switch between Light Mode, Dark Mode, and the Astronaut Theme to customize your experience.</p>
+<body><div class="header">
+    <h1>Welcome to Aurora</h1>
+    <p>Where Creativity Meets Intelligence 🚀</p>
+</div>
 
-<h2 id="contact">Contact</h2>
-<p>For inquiries, email us at: support@aurora.io</p>
+<h2>Basic Tools</h2>
+<div class="basic-tools">
+    <div class="tool-card"><h3>✂️ Trim</h3><p>Cut unwanted parts of your video easily.</p></div>
+    <div class="tool-card"><h3>🔀 Merge</h3><p>Combine multiple clips into one seamless video.</p></div>
+    <div class="tool-card"><h3>🎵 Add Music</h3><p>Insert background music to enhance mood.</p></div>
+    <div class="tool-card"><h3>🖼️ Filters</h3><p>Apply cool filters to your photos and videos.</p></div>
+    <div class="tool-card"><h3>🎤 Voiceover</h3><p>Add custom voiceovers to narrate your story.</p></div>
+    <div class="tool-card"><h3>💬 Captions</h3><p>Insert subtitles for better engagement.</p></div>
+</div>
 
-</section><div class="footer">
-    &copy; 2026 Aurora - All Rights Reserved.
-</div></body>
+<div class="logo">A</div>
+
+<footer>
+    &copy; 2025 Aurora - All rights reserved.
+</footer>
+
+</body>
 </html>
