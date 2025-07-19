@@ -21,10 +21,6 @@
             --bg-color: #f8f9fa;
             --text-color: #212529;
         }
-        .astronaut-theme {
-            --bg-color: linear-gradient(135deg, #3a1c71, #d76d77, #ffaf7b);
-            --text-color: #ffffff;
-        }
         .header {
             padding: 20px;
             background-color: rgba(0,0,0,0.6);
@@ -91,20 +87,11 @@
     🎉 Official Launch on <strong>1 February 2026</strong>! Stay tuned! 🎉
 </div>
 
-<h2>Explore Our Extensive Features ✨</h2>
-<div class="features" id="features"></div>
-
-<h2>About Us</h2>
-<div class="section" id="about"></div>
-
-<h2>Contact</h2>
-<div class="section" id="contact"></div>
-
-<h2>Team</h2>
-<div class="section" id="team"></div>
-
-<h2>Blog / Updates</h2>
-<div class="section" id="blog"></div>
+<h2>Explore Our Features ✨</h2>
+<div class="features">
+    <div class="feature-card">🎬 Basic Editing Tools - Trim, split, merge videos easily.</div>
+    <div class="feature-card">🎶 Music Library - Access a wide collection of free music & sound effects.</div>
+</div>
 
 <div class="logo">A</div>
 
@@ -113,46 +100,9 @@
 </footer>
 
 <script>
-    let currentTheme = 0;
-    const themes = ['', 'light-theme', 'astronaut-theme'];
-
     function toggleTheme() {
-        document.body.classList.remove(themes[currentTheme]);
-        currentTheme = (currentTheme + 1) % themes.length;
-        if (themes[currentTheme]) {
-            document.body.classList.add(themes[currentTheme]);
-        }
+        document.body.classList.toggle('light-theme');
     }
-
-    const content = {
-        features: [
-            "🎨 AI Style Transfer - Turn photos into artworks.",
-            "🌟 AI Colorizer - Colorize black and white photos automatically.",
-            "🎬 Basic Editing Tools - Trim, split, merge videos easily.",
-            "🎶 Music Library - Access a wide collection of free music & sound effects.",
-            "🎤 Voiceover Recording - Record your own voice within the app.",
-            "📜 Text & Titles - Add animated text with various fonts and styles.",
-            "🔄 Video Transitions - Smooth transitions between video clips.",
-            "💬 Auto Captions - Generate subtitles automatically from speech.",
-            "🎨 Stickers & Emojis - Add fun stickers, gifs, and emojis.",
-            "🗡️ Chroma Key (Green Screen) - Remove backgrounds using green screen tools.",
-            "🔍 3D Zoom Pro - Create cinematic 3D zoom effects effortlessly."
-        ],
-        about: "Aurora is built to redefine creativity with cutting-edge AI tools for enhancing photos and videos effortlessly.",
-        contact: "Email us at: support@aurora.io",
-        team: "Meet the passionate team of developers, designers, and AI experts behind Aurora.",
-        blog: "Stay tuned for exciting updates, tutorials, and tips on maximizing your creativity with Aurora!"
-    };
-
-    function renderContent() {
-        document.getElementById('features').innerHTML = content.features.map(f => `<div class='feature-card'>${f}</div>`).join('');
-        document.getElementById('about').innerHTML = `<div class='section-card'>${content.about}</div>`;
-        document.getElementById('contact').innerHTML = `<div class='section-card'>${content.contact}</div>`;
-        document.getElementById('team').innerHTML = `<div class='section-card'>${content.team}</div>`;
-        document.getElementById('blog').innerHTML = `<div class='section-card'>${content.blog}</div>`;
-    }
-
-    renderContent();
 </script>
 
 </body>
