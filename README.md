@@ -1,74 +1,48 @@
-# Creating a zip file with the index.html content
+# Creating a README.md file with the same content as index.html in markdown-friendly format
 
-from zipfile import ZipFile
-import os
+readme_content = """
+# Aurora - Ultimate Editing Studio
 
-# Create the index.html content
-index_html_content = """
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Aurora - Ultimate Editing Studio</title>
-    <link rel="stylesheet" href="styles.css">
-</head>
-<body>
+Welcome to **Aurora** — Your Ultimate Video & Photo Editor!
 
-    <header>
-        <h1>🌌 Aurora</h1>
-        <nav>
-            <a href="#">Home</a>
-            <a href="#">Features</a>
-            <a href="#">Editor</a>
-            <a href="#">Gallery</a>
-            <a href="#">Login</a>
-        </nav>
-    </header>
+## 🌟 Features
 
-    <section id="hero">
-        <h2>Welcome to Aurora</h2>
-        <p>Create stunning videos & photos effortlessly with AI-powered tools.</p>
-        <button>Start Editing Now</button>
-    </section>
+- **8K Ultra HD Export Quality**
+- **Multi-Layer Timeline Editing**
+- **AI Auto-Editing & Smart Tools**
+- **Auto Captions in Multiple Languages**
+- **Voice Command Editing**
+- **AI Mood Filters & Face Tracking**
 
-    <section id="features">
-        <h2>Our Features</h2>
-        <ul>
-            <li>8K Ultra HD Export Quality</li>
-            <li>Multi-Layer Timeline Editing</li>
-            <li>AI Auto-Editing & Smart Tools</li>
-            <li>Auto Captions in Multiple Languages</li>
-            <li>Voice Command Editing</li>
-            <li>AI Mood Filters & Face Tracking</li>
-        </ul>
-    </section>
+## 🚀 Quick Start
 
-    <section id="cta">
-        <h2>Join the Aurora Revolution</h2>
-        <button>Get Started</button>
-    </section>
+1. Clone or download this repository.
+2. Open the `index.html` file in your browser.
+3. Start exploring the Aurora editing experience!
 
-    <footer>
-        <p>&copy; 2025 Aurora. All rights reserved.</p>
-    </footer>
+## 🔗 Navigation
 
-</body>
-</html>
+- Home
+- Features
+- Editor
+- Gallery
+- Login
+
+## 📣 Call to Action
+
+> **Join the Aurora Revolution!**  
+> Start Editing Now and create stunning videos & photos effortlessly with AI-powered tools.
+
+## 🧩 About
+
+© 2025 Aurora. All rights reserved.
 """
 
-# Write the content to index.html
-with open("index.html", "w") as file:
-    file.write(index_html_content)
+# Write the README.md file
+readme_filename = "/mnt/data/README.md"
+with open(readme_filename, "w") as readme_file:
+    readme_file.write(readme_content)
 
-# Create a zip file
-zip_filename = "aurora_website.zip"
-with ZipFile(zip_filename, 'w') as zipf:
-    zipf.write("index.html")
+readme_filename
 
-# Clean up the index.html file after zipping
-os.remove("index.html")
-
-# Provide the download link
-zip_filename
 
