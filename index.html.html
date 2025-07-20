@@ -1,189 +1,108 @@
-<!DOCTYPE html><html lang="en">">
+<!DOCTYPE html><html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Neon Login, Signup & Forgot Password</title>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
-    <style>
-        body {
-            background: #0f0f0f;
-            font-family: 'Poppins', sans-serif;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            height: 100vh;
-            margin: 0;
-            color: #fff;
+    <title>Auraora - Login with Google</title>
+    <script type="module">
+        // Firebase Imports
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/9.23.0/firebase-app.js";
+        import { getAuth, GoogleAuthProvider, signInWithPopup, signOut, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/9.23.0/firebase-auth.js";// Firebase Config
+    const firebaseConfig = {
+        apiKey: "AIzaSyDJ4zelDmTFeZRHuYG2d59JBV89WnnjwTU",
+        authDomain: "auraora-443ee.firebaseapp.com",
+        projectId: "auraora-443ee",
+        storageBucket: "auraora-443ee.appspot.com",
+        messagingSenderId: "600312690178",
+        appId: "1:600312690178:web:f5a8df11ae7458fb8dd91b",
+        measurementId: "G-DM8Q2JC4Y8"
+    };
+
+    const app = initializeApp(firebaseConfig);
+    const auth = getAuth(app);
+    const provider = new GoogleAuthProvider();
+
+    const loginBtn = document.getElementById('loginBtn');
+    const logoutBtn = document.getElementById('logoutBtn');
+    const userDetails = document.getElementById('userDetails');
+
+    loginBtn.addEventListener('click', () => {
+        signInWithPopup(auth, provider)
+            .then(result => {
+                const user = result.user;
+                showUser(user);
+            })
+            .catch(error => {
+                alert('Login failed: ' + error.message);
+            });
+    });
+
+    logoutBtn.addEventListener('click', () => {
+        signOut(auth)
+            .then(() => {
+                userDetails.innerHTML = '';
+                toggleUI(false);
+            })
+            .catch(error => alert('Logout failed: ' + error.message));
+    });
+
+    onAuthStateChanged(auth, (user) => {
+        if (user) {
+            showUser(user);
+        } else {
+            toggleUI(false);
         }
-        .container {
-            background: #1a1a1a;
-            padding: 25px;
-            border-radius: 12px;
-            box-shadow: 0 0 25px #00ffff;
-            width: 320px;
-            text-align: center;
-        }
-        .tab {
-            display: flex;
-            justify-content: space-around;
-            margin-bottom: 20px;
-        }
-        .tab button {
-            background: none;
-            border: none;
-            color: #00ffff;
-            font-weight: 600;
-            cursor: pointer;
-            padding: 10px;
-            border-bottom: 2px solid transparent;
-            transition: border-color 0.3s;
-        }
-        .tab button.active {
-            border-color: #00ffff;
-        }
-        .form {
-            display: none;
-        }
-        .form.active {
-            display: block;
-            animation: fadeIn 0.5s;
-        }
-        @keyframes fadeIn {
-            from {opacity: 0;}
-            to {opacity: 1;}
-        }
-        input {
-            width: 100%;
-            padding: 12px;
-            margin: 10px 0;
-            border: none;
-            border-radius: 5px;
-            background: #333;
-            color: #fff;
-            box-shadow: 0 0 10px #00ffff;
-            font-size: 1rem;
-        }
-        button.submit {
-            background: #00ffff;
-            border: none;
-            padding: 10px 25px;
-            border-radius: 5px;
-            color: #000;
-            font-weight: bold;
-            cursor: pointer;
-            box-shadow: 0 0 15px #00ffff;
-            margin-top: 10px;
-            transition: transform 0.2s;
-        }
-        button.submit:hover {
-            transform: scale(1.05);
-        }
-        .link {
-            color: #00ffff;
-            cursor: pointer;
-            text-decoration: underline;
-            display: block;
-            margin: 12px 0;
-            font-size: 0.9rem;
-        }
-    </style>
+    });
+
+    function showUser(user) {
+        userDetails.innerHTML = `
+            <h3>Welcome, ${user.displayName}</h3>
+            <p>Email: ${user.email}</p>
+            <img src="${user.photoURL}" alt="User Photo" style="width:80px; border-radius:50%; box-shadow: 0 0 10px #00ffff;">
+        `;
+        toggleUI(true);
+    }
+
+    function toggleUI(isLoggedIn) {
+        loginBtn.style.display = isLoggedIn ? 'none' : 'block';
+        logoutBtn.style.display = isLoggedIn ? 'block' : 'none';
+        userDetails.style.display = isLoggedIn ? 'block' : 'none';
+    }
+</script>
+<style>
+    body {
+        background: #0f0f0f;
+        color: #fff;
+        font-family: 'Poppins', sans-serif;
+        text-align: center;
+        padding-top: 50px;
+    }
+    button {
+        background: #00ffff;
+        border: none;
+        padding: 12px 24px;
+        border-radius: 8px;
+        cursor: pointer;
+        font-weight: bold;
+        margin: 10px;
+        box-shadow: 0 0 15px #00ffff;
+    }
+    button:hover {
+        background: #0ff;
+        transform: scale(1.05);
+    }
+    .neon-title {
+        font-size: 2em;
+        text-shadow: 0 0 10px #00ffff, 0 0 20px #00ffff;
+        margin-bottom: 30px;
+    }
+</style>
+
 </head>
-<body><div class="container">
-    <div class="tab">
-        <button id="loginTab" class="active">Login</button>
-        <button id="signupTab">Signup</button>
-    </div><div id="loginForm" class="form active">
-    <input type="text" id="loginEmail" placeholder="Email or Username">
-    <input type="password" id="loginPassword" placeholder="Password">
-    <button class="submit" onclick="login()">Login</button>
-    <span class="link" onclick="showForgotPassword()">Forgot Password?</span>
-</div>
+<body><h1 class="neon-title">Welcome to Auraora</h1>
+<button id="loginBtn">Login with Google</button>
+<button id="logoutBtn" style="display:none;">Logout</button>
 
-<div id="signupForm" class="form">
-    <input type="text" id="signupEmail" placeholder="Email">
-    <input type="password" id="signupPassword" placeholder="Password">
-    <input type="password" id="confirmPassword" placeholder="Confirm Password">
-    <button class="submit" onclick="signup()">Signup</button>
-</div>
+<div id="userDetails" style="margin-top: 20px;"></div>
 
-<div id="forgotForm" class="form">
-    <input type="text" id="forgotEmail" placeholder="Enter Your Email">
-    <input type="password" id="newPassword" placeholder="New Password">
-    <button class="submit" onclick="resetPassword()">Reset Password</button>
-    <span class="link" onclick="backToLogin()">Back to Login</span>
-</div>
-
-</div><script>
-    const loginTab = document.getElementById('loginTab');
-    const signupTab = document.getElementById('signupTab');
-    const loginForm = document.getElementById('loginForm');
-    const signupForm = document.getElementById('signupForm');
-    const forgotForm = document.getElementById('forgotForm');
-
-    loginTab.addEventListener('click', () => switchForm('login'));
-    signupTab.addEventListener('click', () => switchForm('signup'));
-
-    function switchForm(type) {
-        loginTab.classList.toggle('active', type === 'login');
-        signupTab.classList.toggle('active', type === 'signup');
-        loginForm.classList.toggle('active', type === 'login');
-        signupForm.classList.toggle('active', type === 'signup');
-        forgotForm.classList.remove('active');
-    }
-
-    function signup() {
-        const email = document.getElementById('signupEmail').value;
-        const password = document.getElementById('signupPassword').value;
-        const confirmPassword = document.getElementById('confirmPassword').value;
-
-        if (!email || !password || !confirmPassword) {
-            alert('Please fill in all fields.');
-            return;
-        }
-        if (password !== confirmPassword) {
-            alert('Passwords do not match.');
-            return;
-        }
-
-        localStorage.setItem(email, password);
-        alert('Signup successful! You can now login.');
-        loginTab.click();
-    }
-
-    function login() {
-        const email = document.getElementById('loginEmail').value;
-        const password = document.getElementById('loginPassword').value;
-
-        const storedPassword = localStorage.getItem(email);
-        if (storedPassword === password) {
-            alert('Login successful! Welcome back.');
-            // Redirect or proceed
-        } else {
-            alert('Incorrect email/username or password.');
-        }
-    }
-
-    function showForgotPassword() {
-        loginForm.classList.remove('active');
-        signupForm.classList.remove('active');
-        forgotForm.classList.add('active');
-    }
-
-    function resetPassword() {
-        const email = document.getElementById('forgotEmail').value;
-        const newPassword = document.getElementById('newPassword').value;
-
-        if (localStorage.getItem(email)) {
-            localStorage.setItem(email, newPassword);
-            alert('Password reset successful! You can login now.');
-            backToLogin();
-        } else {
-            alert('No account found with this email.');
-        }
-    }
-
-    function backToLogin() {
-        switchForm('login');
-    }
-</script></body>
+</body>
 </html>
