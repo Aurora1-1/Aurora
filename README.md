@@ -1,114 +1,182 @@
-import Link from 'next/link';
-import { useState } from 'react';
-
-export default function Home() {
-  const features = [
-    { name: 'AutoCut', route: '/features/autocut' },
-    { name: 'Retouch', route: '/features/retouch' },
-    { name: 'Space', route: '/features/space' },
-    { name: 'Auto Enhance', route: '/features/auto-enhance' },
-    { name: 'Photo Editor', route: '/features/photo-editor' },
-    { name: 'Marketing Tools', route: '/features/marketing-tools' },
-    { name: 'Remove Background', route: '/features/remove-background' },
-    { name: 'Auto Captions', route: '/features/auto-captions' },
-    { name: 'Camera', route: '/features/camera' }
-  ];
-
-  const [projects, setProjects] = useState([
-    '20250721_1',
-    '20250721_2',
-    '2024_project',
-    'Old Vibes'
-  ]);
-
-  const [darkMode, setDarkMode] = useState(false);
-
-  return (
-    <div className={`min-h-screen ${darkMode ? 'bg-black text-white' : 'bg-gradient-to-b from-pink-800 via-purple-900 to-black text-white'} p-4 font-sans animate-fade-in-slow`}>
-      <header className="flex flex-col items-center justify-center mb-6 animate-fade-in">
-        <h1 className="text-5xl font-extrabold tracking-wide neon-text mb-2 animate-fade-in">Aurora</h1>
-        <p className="italic text-lg neon-subtext mb-1 animate-slide-in">When Creativity Meets Intelligence</p>
-        <p className="italic text-sm text-pink-300 mb-4 animate-slide-in">🚀 Launching on 1st February 2026</p>
-        <div className="flex space-x-2">
-          <button
-            onClick={() => setDarkMode(!darkMode)}
-            className="bg-pink-600 hover:bg-pink-800 text-white py-1 px-4 rounded-full shadow-lg hover:scale-105 transition-transform"
-          >
-            {darkMode ? 'Light Mode' : 'Dark Mode'}
-          </button>
-          <Link href="/create">
-            <button className="bg-purple-600 hover:bg-purple-800 text-white py-1 px-4 rounded-full shadow-lg hover:scale-105 transition-transform">+ New Project</button>
-          </Link>
-        </div>
-      </header>
-
-      <section className="mb-8">
-        <h2 className="text-2xl font-semibold mb-3 neon-subtext">Your Projects</h2>
-        <div className="flex space-x-4 overflow-x-auto">
-          {projects.map((project, idx) => (
-            <div key={idx} className="bg-gradient-to-br from-pink-500 to-purple-700 text-white rounded-xl w-28 h-28 flex items-center justify-center shadow-xl transform hover:scale-110 transition-transform border-2 border-pink-300 animate-fade-in">
-              {project}
-            </div>
-          ))}
-        </div>
-      </section>
-
-      <section className="mb-10">
-        <h2 className="text-2xl font-semibold mb-3 neon-subtext">Features</h2>
-        <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
-          {features.map((feature, idx) => (
-            <Link href={feature.route} key={idx}>
-              <div className={`shadow-xl p-4 rounded-xl text-center cursor-pointer transform hover:scale-110 transition-transform border-2 border-pink-400 ${darkMode ? 'bg-gray-800 text-white' : 'bg-gray-900 text-white'} animate-slide-up`}>                <div className="text-4xl mb-2">⚡</div>
-                <div className="font-bold neon-text">{feature.name}</div>
-              </div>
-            </Link>
-          ))}
-        </div>
-      </section>
-
-      <footer className={`fixed bottom-0 left-0 w-full border-t flex justify-around py-3 text-lg ${darkMode ? 'bg-gray-800 text-white' : 'bg-black text-pink-200'} shadow-inner animate-fade-in`}>
-        <Link href="/edit">✂️ Edit</Link>
-        <Link href="/templates">📋 Templates</Link>
-        <Link href="/projects">🗂 Projects</Link>
-        <Link href="/me">👤 Me</Link>
-      </footer>
-
-      <style jsx>{`
-        .neon-text {
-          color: #fff;
-          text-shadow: 0 0 5px #fff, 0 0 10px #ff00ff, 0 0 20px #ff00ff;
+<!DOCTYPE html><html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>When Creativity Meets Intelligence</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&family=Pacifico&display=swap" rel="stylesheet">
+    <style>
+        body {
+            margin: 0;
+            font-family: 'Poppins', sans-serif;
+            background: linear-gradient(135deg, #0f0f0f, #1a1a1a);
+            color: #fff;
+            text-align: center;
+            transition: background 0.5s, color 0.5s;
+            overflow-x: hidden;
         }
-        .neon-subtext {
-          color: #ddd;
-          text-shadow: 0 0 3px #fff, 0 0 5px #ff00ff;
+        header {
+            padding: 50px 20px;
+            position: relative;
         }
-        @keyframes fadeIn {
-          from { opacity: 0; }
-          to { opacity: 1; }
+        .tagline {
+            font-family: 'Pacifico', cursive;
+            font-size: 2.8rem;
+            font-weight: bold;
+            margin: 20px 0;
+            color: #00ffff;
+            text-shadow: 0 0 10px #00ffff, 0 0 20px #00ffff, 0 0 30px #00ffff;
+            animation: glow 1.5s infinite alternate, float 3s infinite ease-in-out;
         }
-        @keyframes slideIn {
-          from { transform: translateY(20px); opacity: 0; }
-          to { transform: translateY(0); opacity: 1; }
+        @keyframes glow {
+            from { text-shadow: 0 0 10px #00ffff; }
+            to { text-shadow: 0 0 20px #00ffff, 0 0 30px #00ffff, 0 0 40px #00ffff; }
         }
-        @keyframes slideUp {
-          from { transform: translateY(50px); opacity: 0; }
-          to { transform: translateY(0); opacity: 1; }
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
         }
-        .animate-fade-in {
-          animation: fadeIn 1s ease-in-out;
+        .launch-date {
+            font-size: 1.2rem;
+            margin: 10px 0 40px;
         }
-        .animate-fade-in-slow {
-          animation: fadeIn 2s ease-in-out;
+        .countdown {
+            font-size: 1.5rem;
+            margin-bottom: 30px;
+            font-weight: 600;
         }
-        .animate-slide-in {
-          animation: slideIn 1s ease-out;
+        .features {
+            background: #222;
+            padding: 30px 10px;
+            border-radius: 12px;
+            margin: 20px auto;
+            max-width: 800px;
+            box-shadow: 0 0 15px rgba(0,255,255,0.5);
+            border: 2px solid #00ffff;
         }
-        .animate-slide-up {
-          animation: slideUp 1s ease-out;
+        .features h2 {
+            color: #00ff99;
+            margin-bottom: 20px;
+            font-weight: 700;
+            text-shadow: 0 0 10px #00ff99;
         }
-      `}</style>
-    </div>
-  );
-}
+        .features li {
+            margin: 10px 0;
+            font-size: 1.1rem;
+            font-weight: 500;
+            text-shadow: 0 0 5px #ffffff;
+        }
+        .toggle-mode {
+            margin-top: 20px;
+            cursor: pointer;
+            background: #444;
+            padding: 8px 16px;
+            border: none;
+            border-radius: 5px;
+            color: #fff;
+            font-family: 'Poppins', sans-serif;
+            box-shadow: 0 0 10px #ffffff;
+        }
+        .stars {
+            position: fixed;
+            top: 0; left: 0;
+            width: 100%;
+            height: 100%;
+            background: transparent;
+            pointer-events: none;
+            z-index: -1;
+        }
+        .star {
+            position: absolute;
+            width: 2px;
+            height: 2px;
+            background: white;
+            animation: twinkle 2s infinite;
+        }
+        @keyframes twinkle {
+            0%, 100% { opacity: 0.3; }
+            50% { opacity: 1; }
+        }
+        footer {
+            margin-top: 40px;
+            padding: 20px;
+            background: #111;
+            font-size: 0.9rem;
+            text-shadow: 0 0 5px #00ffff;
+        }
+    </style>
+</head>
+<body>
+    <div class="stars" id="stars"></div><header>
+    <div class="tagline">When Creativity Meets Intelligence</div>
+    <div class="launch-date">Launching on 1st February 2026</div>
+    <div class="countdown" id="countdown"></div>
+    <button class="toggle-mode" onclick="toggleMode()">Toggle Dark/Light Mode</button>
+</header>
 
+<section class="features">
+    <h2>Upcoming Features</h2>
+    <ul>
+        <li>AI-Powered Editing Tools</li>
+        <li>Smart Templates for Social Media</li>
+        <li>Background Removal with One Click</li>
+        <li>Audio & Music Enhancer</li>
+        <li>Advanced Video Effects & Filters</li>
+    </ul>
+</section>
 
+<footer>
+    &copy; 2025 Bestie Studios — When Creativity Meets Intelligence
+</footer>
+
+<audio id="bg-music" loop autoplay>
+    <source src="background-music.mp3" type="audio/mpeg">
+</audio>
+
+<script>
+    // Countdown Timer
+    const countdownEl = document.getElementById('countdown');
+    const launchDate = new Date('2026-02-01T00:00:00').getTime();
+
+    function updateCountdown() {
+        const now = new Date().getTime();
+        const distance = launchDate - now;
+
+        const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+        const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+        const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+        const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+        countdownEl.textContent = ${days}d ${hours}h ${minutes}m ${seconds}s until Launch!;
+
+        if (distance < 0) {
+            clearInterval(timer);
+            countdownEl.textContent = "We have launched! 🚀";
+        }
+    }
+
+    const timer = setInterval(updateCountdown, 1000);
+
+    // Toggle Dark/Light Mode
+    function toggleMode() {
+        if (document.body.style.background.includes('#0f0f0f')) {
+            document.body.style.background = '#ffffff';
+            document.body.style.color = '#000';
+        } else {
+            document.body.style.background = 'linear-gradient(135deg, #0f0f0f, #1a1a1a)';
+            document.body.style.color = '#fff';
+        }
+    }
+
+    // Generate Stars Background
+    const starsContainer = document.getElementById('stars');
+    for (let i = 0; i < 100; i++) {
+        const star = document.createElement('div');
+        star.classList.add('star');
+        star.style.top = Math.random() * 100 + '%';
+        star.style.left = Math.random() * 100 + '%';
+        starsContainer.appendChild(star);
+    }
+</script>
+
+</body>
+</html>
