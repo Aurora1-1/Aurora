@@ -1,150 +1,114 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Aurora - Ultimate Editing Studio</title>
-    <style>
-        @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@500&family=Pacifico&family=Monoton&display=swap');
+import Link from 'next/link';
+import { useState } from 'react';
 
-        body {
-            margin: 0;
-            font-family: 'Orbitron', sans-serif;
-            background: radial-gradient(circle at center, #0f0f0f, #000000);
-            color: #FFFFFF;
-        }
-        header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 20px;
-            background: linear-gradient(90deg, #8A2BE2, #00FFFF);
-            box-shadow: 0 4px 10px rgba(0,0,0,0.5);
-        }
-        .logo {
-            font-family: 'Pacifico', cursive;
-            font-size: 2em;
-            color: #FF1493;
-            text-shadow: 0 0 10px #FF1493;
-        }
-        nav a {
-            color: #FFFFFF;
-            margin: 0 12px;
-            text-decoration: none;
-            transition: color 0.3s;
-        }
-        nav a:hover {
-            color: #FF1493;
-        }
-        .hero {
-            text-align: center;
-            padding: 120px 20px;
-            background: linear-gradient(135deg, #8A2BE2, #00FFFF);
-            animation: pulse 5s infinite alternate;
-        }
-        @keyframes pulse {
-            from { opacity: 1; }
-            to { opacity: 0.8; }
-        }
-        .hero h1 {
-            font-size: 4em;
-            margin-bottom: 15px;
-            text-shadow: 0 0 20px #00FFFF;
-        }
-        .hero p.tagline {
-            font-size: 1.8em;
-            font-style: italic;
-            color: #FFD700;
-            margin-bottom: 20px;
-        }
-        .hero p.release-date {
-            font-family: 'Monoton', cursive;
-            font-size: 1.6em;
-            color: #FF69B4;
-            text-shadow: 0 0 10px #FF69B4;
-        }
-        section {
-            padding: 60px 20px;
-            border-bottom: 1px solid #333;
-        }
-        h2 {
-            text-align: center;
-            margin-bottom: 30px;
-            font-size: 2.5em;
-            text-shadow: 0 0 10px #8A2BE2;
-        }
-        ul {
-            max-width: 600px;
-            margin: 0 auto;
-            list-style: none;
-            padding: 0;
-        }
-        ul li {
-            margin-bottom: 15px;
-            background: #111;
-            padding: 10px;
-            border-left: 5px solid #8A2BE2;
-            border-radius: 5px;
-        }
-        footer {
-            text-align: center;
-            padding: 20px;
-            background-color: #111111;
-            border-top: 1px solid #8A2BE2;
-        }
-    </style>
-</head>
-<body>
-    <header>
-        <div class="logo">🚀 Aurora</div>
-        <nav>
-            <a href="#home">Home</a>
-            <a href="#features">Features</a>
-            <a href="#editor">Editor</a>
-            <a href="#gallery">Gallery</a>
-            <a href="#about">About</a>
-            <a href="#contact">Contact</a>
-        </nav>
-    </header>
+export default function Home() {
+  const features = [
+    { name: 'AutoCut', route: '/features/autocut' },
+    { name: 'Retouch', route: '/features/retouch' },
+    { name: 'Space', route: '/features/space' },
+    { name: 'Auto Enhance', route: '/features/auto-enhance' },
+    { name: 'Photo Editor', route: '/features/photo-editor' },
+    { name: 'Marketing Tools', route: '/features/marketing-tools' },
+    { name: 'Remove Background', route: '/features/remove-background' },
+    { name: 'Auto Captions', route: '/features/auto-captions' },
+    { name: 'Camera', route: '/features/camera' }
+  ];
 
-    <section class="hero" id="home">
-        <h1>Welcome to Aurora</h1>
-        <p class="tagline">Where Creativity Meets Intelligence</p>
-        <p>Revolutionizing Editing with AI & Neon Vibes</p>
-        <p class="release-date">🚀 Official Release Date: 1 Feb 2026 🚀</p>
-    </section>
+  const [projects, setProjects] = useState([
+    '20250721_1',
+    '20250721_2',
+    '2024_project',
+    'Old Vibes'
+  ]);
 
-    <section id="features">
-        <h2>✨ Features</h2>
-        <ul>
-            <li>8K Ultra HD Export</li>
-            <li>AI Auto-Editing & Smart Tools</li>
-            <li>Voice Command Editing</li>
-            <li>Multi-Layer Timeline</li>
-            <li>Auto Captions</li>
-            <li>Mood Filters & Face Tracking</li>
-        </ul>
-    </section>
+  const [darkMode, setDarkMode] = useState(false);
 
-    <section id="gallery">
-        <h2>📸 Gallery</h2>
-        <p style="text-align:center;">Explore creations by our vibrant community!</p>
-    </section>
+  return (
+    <div className={`min-h-screen ${darkMode ? 'bg-gray-900 text-white' : 'bg-gradient-to-b from-blue-100 to-white text-black'} p-4 font-sans`}>
+      <header className="flex items-center justify-between mb-6">
+        <h1 className="text-3xl font-extrabold tracking-wide">Aurora</h1>
+        <div className="flex space-x-2">
+          <button
+            onClick={() => setDarkMode(!darkMode)}
+            className="bg-purple-500 hover:bg-purple-700 text-white py-1 px-3 rounded-full shadow"
+          >
+            {darkMode ? 'Light Mode' : 'Dark Mode'}
+          </button>
+          <Link href="/create">
+            <button className="bg-blue-600 hover:bg-blue-800 text-white py-1 px-3 rounded-full shadow">+ New Project</button>
+          </Link>
+        </div>
+      </header>
 
-    <section id="about">
-        <h2>👩‍🚀 About Us</h2>
-        <p style="max-width:600px; margin:auto; text-align:center;">
-            Aurora is redefining creativity with AI-driven video and photo editing tools, wrapped in a stunning futuristic experience.
-        </p>
-    </section>
+      <section className="mb-8">
+        <h2 className="text-xl font-semibold mb-3">Your Projects</h2>
+        <div className="flex space-x-4 overflow-x-auto">
+          {projects.map((project, idx) => (
+            <div key={idx} className="bg-gradient-to-br from-pink-400 to-purple-500 text-white rounded-xl w-28 h-28 flex items-center justify-center shadow-lg transform hover:scale-105 transition-transform">
+              {project}
+            </div>
+          ))}
+        </div>
+      </section>
 
-    <section id="contact">
-        <h2>📬 Contact Us</h2>
-        <p style="text-align:center;">Reach out at: <a href="mailto:support@aurora.com" style="color:#00FFFF;">support@aurora.com</a></p>
-    </section>
+      <section className="mb-10">
+        <h2 className="text-xl font-semibold mb-3">Features</h2>
+        <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
+          {features.map((feature, idx) => (
+            <Link href={feature.route} key={idx}>
+              <div className={`shadow-lg p-4 rounded-xl text-center cursor-pointer transform hover:scale-105 transition-transform ${darkMode ? 'bg-gray-800 text-white' : 'bg-white text-gray-800'}`}>
+                <div className="text-3xl mb-2">✨</div>
+                <div className="font-medium">{feature.name}</div>
+              </div>
+            </Link>
+          ))}
+        </div>
+      </section>
 
-    <footer>
-        <p>&copy; 2025 Aurora. All rights reserved.</p>
-    </footer>
-</body>
-</html>
+      <footer className={`fixed bottom-0 left-0 w-full border-t flex justify-around py-3 text-lg ${darkMode ? 'bg-gray-800 text-white' : 'bg-white text-black'} shadow-inner`}>
+        <Link href="/edit">✂️ Edit</Link>
+        <Link href="/templates">📋 Templates</Link>
+        <Link href="/projects">🗂 Projects</Link>
+        <Link href="/me">👤 Me</Link>
+      </footer>
+    </div>
+  );
+}
+
+// Empty Feature Pages
+
+export function AutoCut() {
+  return <div className="p-10 text-center text-2xl">✨ AutoCut Feature Coming Soon!</div>;
+}
+
+export function Retouch() {
+  return <div className="p-10 text-center text-2xl">✨ Retouch Feature Coming Soon!</div>;
+}
+
+export function Space() {
+  return <div className="p-10 text-center text-2xl">✨ Space Feature Coming Soon!</div>;
+}
+
+export function AutoEnhance() {
+  return <div className="p-10 text-center text-2xl">✨ Auto Enhance Feature Coming Soon!</div>;
+}
+
+export function PhotoEditor() {
+  return <div className="p-10 text-center text-2xl">✨ Photo Editor Feature Coming Soon!</div>;
+}
+
+export function MarketingTools() {
+  return <div className="p-10 text-center text-2xl">✨ Marketing Tools Feature Coming Soon!</div>;
+}
+
+export function RemoveBackground() {
+  return <div className="p-10 text-center text-2xl">✨ Remove Background Feature Coming Soon!</div>;
+}
+
+export function AutoCaptions() {
+  return <div className="p-10 text-center text-2xl">✨ Auto Captions Feature Coming Soon!</div>;
+}
+
+export function Camera() {
+  return <div className="p-10 text-center text-2xl">✨ Camera Feature Coming Soon!</div>;
+}
